@@ -1,10 +1,27 @@
-import React, { useState } from "react";
 import { TransportControls } from "@/components/TransportControls";
 import { Timeline } from "@/components/Timeline";
 import { AudioClip } from "@/types";
+import { useAudioRecorder } from "./hooks/useAudioRecorder";
 
 const App: React.FC = () => {
-  const [isRecording, setIsRecording] = useState(false);
+  const {
+    isRecording,
+    isPlaying,
+    hasRecordings,
+    startRecording,
+    stopRecording,
+    playLastRecording,
+    undoLastRecording,
+  } = useAudioRecorder();
+
+  const handleRecordToggle = () => {
+    if (isRecording) {
+      stopRecording();
+    } else {
+      startRecording();
+    }
+  };
+
   const clips = [{ id: 1, start: 100, width: 200, name: "Vocal Take 1" }];
 
   const handlePlay = () => {
@@ -23,9 +40,9 @@ const App: React.FC = () => {
     <div className="w-full h-screen bg-gray-900 text-white p-4">
       <TransportControls
         isRecording={isRecording}
-        onRecordToggle={() => setIsRecording(!isRecording)}
-        onPlay={handlePlay}
-        onStop={handleStop}
+        onRecordToggle={handleRecordToggle}
+        onPlay={playLastRecording}
+        onStop={stopRecording}
         onSave={handleSave}
       />
       <Timeline clips={clips} />
