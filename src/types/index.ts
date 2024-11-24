@@ -3,4 +3,5 @@ export interface AudioClip {
   start: number;
   width: number;
   name: string;
+  audioBuffer?: AudioBuffer;
 }
