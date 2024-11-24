@@ -1,0 +1,13 @@
+// src/types/types.ts
+export interface AudioClip {
+  id: number;
+  start: number;
+  width: number;
+  name: string;
+}
+
+// src/components/transport/TransportControls.tsx
+// src/components/timeline/TimeMarkers.tsx
+// src/components/timeline/AudioClipView.tsx
+// src/components/timeline/Timeline.tsx
+// src/App.tsx

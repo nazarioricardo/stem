@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { TransportControls } from "./components/TransportControls";
+import { Timeline } from "./components/Timeline";
+import { AudioClip } from "./types";
 
-function App() {
+const App: React.FC = () => {
+  const [isRecording, setIsRecording] = useState(false);
+  const clips = [{ id: 1, start: 100, width: 200, name: "Vocal Take 1" }];
+
+  const handlePlay = () => {
+    console.log("Play clicked");
+  };
+
+  const handleStop = () => {
+    console.log("Stop clicked");
+  };
+
+  const handleSave = () => {
+    console.log("Save clicked");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full h-screen bg-gray-900 text-white p-4">
+      <TransportControls
+        isRecording={isRecording}
+        onRecordToggle={() => setIsRecording(!isRecording)}
+        onPlay={handlePlay}
+        onStop={handleStop}
+        onSave={handleSave}
+      />
+      <Timeline clips={clips} />
     </div>
   );
-}
+};
 
 export default App;
