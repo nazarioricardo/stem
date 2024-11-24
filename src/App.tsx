@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { TransportControls } from "./components/TransportControls";
-import { Timeline } from "./components/Timeline";
-import { AudioClip } from "./types";
+import { TransportControls } from "@/components/TransportControls";
+import { Timeline } from "@/components/Timeline";
+import { AudioClip } from "@/types";
 
 const App: React.FC = () => {
   const [isRecording, setIsRecording] = useState(false);

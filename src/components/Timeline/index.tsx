@@ -1,6 +1,6 @@
 import { TimeMarkers } from "./TimeMarkers";
 import { AudioClipView } from "./AudioClipView";
-import { AudioClip } from "../../types";
+import { AudioClip } from "@/types";
 
 interface TimelineProps {
   clips: AudioClip[];

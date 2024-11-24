@@ -1,4 +1,4 @@
-import { AudioClip } from "../../types";
+import { AudioClip } from "@/types";
 
 interface AudioClipViewProps {
   clip: AudioClip;
